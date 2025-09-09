@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>TRUPER | CAM - Infraestructura</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body>
+  <div class="contenedor">
+    <div class="login-box">
+      <h1 class="titulo">TRUPER | CAM</h1>
+      <h2 class="subtitulo">Centro de Alarmado y Monitoreo</h2>
+      <input type="password" id="password" placeholder="Contraseña">
+      <button onclick="checkPassword()">Entrar</button>
+      <p id="error" class="error"></p>
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+</body>
+</html>

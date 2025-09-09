@@ -1,0 +1,122 @@
+:root {
+  --truper-naranja: #FF6720;
+  --truper-amarillo: #FEC52E;
+  --truper-azul: #2C338D;
+  --fondo: #f4f4f4;
+  --texto: #333;
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fondo general */
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--fondo);
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenedor general */
+.contenedor {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Caja de login */
+.login-box {
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Títulos */
+.titulo {
+  color: var(--truper-naranja);
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.subtitulo {
+  color: var(--truper-azul);
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+/* Input */
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+/* Botón */
+button {
+  background-color: var(--truper-naranja);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #e65c1c;
+}
+
+/* Mensaje de error */
+.error {
+  color: red;
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .login-box {
+    padding: 30px 20px;
+  }
+
+  .titulo {
+    font-size: 1.6rem;
+  }
+
+  .subtitulo {
+    font-size: 0.9rem;
+  }
+
+  input[type="password"] {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 10px 16px;
+  }
+
+  .error {
+    font-size: 0.8rem;
+  }
+}
