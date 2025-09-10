@@ -1,165 +1,164 @@
 :root {
-    --truper-naranja: #FF6720;
-    --truper-azul: #2C338D;
-    --gris-claro: #f4f4f4;
-    --texto: #333;
-  }
-  
-  /* Reset básico */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  html, body {
-    height: 100%;
-  }
-  
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: var(--gris-claro);
-    color: var(--texto);
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* Contenedor principal */
-  .contenido {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  
-  /* Encabezado */
-  .encabezado {
-    background-color: var(--truper-naranja);
-    color: white;
-    padding: 20px;
-    text-align: center;
-    border-bottom: 4px solid var(--truper-azul);
-  }
-  
+  --truper-naranja: #FF6720;
+  --truper-azul: #2C338D;
+  --gris-claro: #f4f4f4;
+  --texto: #333;
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--gris-claro);
+  color: var(--texto);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Contenedor principal */
+.contenido {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Encabezado */
+.encabezado {
+  background-color: var(--truper-naranja);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 4px solid var(--truper-azul);
+}
+
+.encabezado h1 {
+  font-size: 2.5rem;
+}
+
+.encabezado h2 {
+  font-size: 1.2rem;
+  font-weight: normal;
+  margin-top: 10px;
+}
+
+/* Panel principal */
+.panel {
+  background-color: white;
+  margin: 40px auto;
+  padding: 30px;
+  max-width: 800px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  width: 90%;
+}
+
+/* Botones */
+.botones-panel {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.boton-truper {
+  background-color: var(--truper-naranja);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.boton-truper:hover {
+  background-color: #e65100;
+  transform: translateY(-2px);
+}
+
+.boton-truper:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Pie de página */
+.pie {
+  text-align: center;
+  padding: 15px;
+  background-color: var(--truper-naranja);
+  color: white;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
   .encabezado h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
-  
+
   .encabezado h2 {
-    font-size: 1.2rem;
-    font-weight: normal;
-    margin-top: 10px;
+    font-size: 1rem;
   }
-  
-  /* Panel principal */
+
   .panel {
-    background-color: white;
-    margin: 40px auto;
-    padding: 30px;
-    max-width: 800px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    width: 90%;
+    margin: 20px;
+    padding: 20px;
   }
-  
-  /* Botones */
+
   .botones-panel {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 15px;
   }
-  
+
   .boton-truper {
-    background-color: var(--truper-naranja);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .boton-truper:hover {
-    background-color: #e65100;
-    transform: translateY(-2px);
-  }
-  
-  .boton-truper:active {
-    transform: translateY(1px);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  }
-  
-  /* Pie de página */
-  .pie {
-    text-align: center;
-    padding: 15px;
-    background-color: var(--truper-naranja);
-    color: white;
-    font-size: 0.9rem;
-    margin-top: auto;
-  }
-  
-  /* Responsividad */
-  @media (max-width: 768px) {
-    .encabezado h1 {
-      font-size: 2rem;
-    }
-  
-    .encabezado h2 {
-      font-size: 1rem;
-    }
-  
-    .panel {
-      margin: 20px;
-      padding: 20px;
-    }
-  
-    .botones-panel {
-      flex-direction: column;
-      gap: 15px;
-    }
-  
-    .boton-truper {
-      width: 100%;
-      font-size: 14px;
-      padding: 10px;
-    }
-  
-    .pie {
-      font-size: 0.8rem;
-      padding: 10px;
-    }
-  }
-  .btn-logout {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    background-color: #2C338D;
-    color: white;
+    width: 100%;
+    font-size: 14px;
     padding: 10px;
-    border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    z-index: 1000;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
-  
-  .btn-logout:hover {
-    background-color: #1f276f;
-    transform: scale(1.1);
+
+  .pie {
+    font-size: 0.8rem;
+    padding: 10px;
   }
-  
-  .btn-logout svg {
-    width: 24px;
-    height: 24px;
-  }
-  
-  
-  
+}
+.btn-logout {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #2C338D;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-logout:hover {
+  background-color: #1f276f;
+  transform: scale(1.1);
+}
+
+.btn-logout svg {
+  width: 24px;
+  height: 24px;
+}
+
+

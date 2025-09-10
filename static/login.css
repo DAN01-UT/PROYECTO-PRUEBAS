@@ -1,3 +1,4 @@
+
 :root {
   --truper-naranja: #FF6720;
   --truper-amarillo: #FEC52E;
@@ -6,28 +7,40 @@
   --texto: #333;
 }
 
-/* Reset básico */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Fondo general */
 html, body {
   height: 100%;
 }
 
 body {
-  background-color: var(--fondo);
+  background-color: #222;
   font-family: 'Segoe UI', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url('img/TRP.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
 }
 
-/* Contenedor general */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
 .contenedor {
+  position: relative;
+  z-index: 2;
   width: 100%;
   padding: 20px;
   display: flex;
@@ -35,18 +48,17 @@ body {
   align-items: center;
 }
 
-/* Caja de login */
 .login-box {
   background-color: white;
   padding: 40px;
   border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   text-align: center;
   width: 100%;
   max-width: 400px;
+  border-top: 5px solid var(--truper-naranja);
 }
 
-/* Títulos */
 .titulo {
   color: var(--truper-naranja);
   font-size: 2rem;
@@ -59,64 +71,55 @@ body {
   margin-bottom: 30px;
 }
 
-/* Input */
-input[type="password"] {
-  width: 100%;
-  padding: 12px;
+.campo {
   margin-bottom: 20px;
+  text-align: left;
+}
+
+.campo label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--texto);
+  font-weight: bold;
+}
+
+.campo input {
+  width: 100%;
+  padding: 12px 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-/* Botón */
-button {
-  background-color: var(--truper-naranja);
+/* Efecto de foco en los campos */
+.campo input:focus {
+  outline: none;
+  border-color: var(--truper-naranja);
+  box-shadow: 0 0 10px rgba(255, 103, 32, 0.5);
+}
+
+/* Botón de entrar con diseño de gradiente */
+.btn-entrar {
+  width: 100%;
+  padding: 12px;
+  background-image: linear-gradient(45deg, var(--truper-naranja) 0%, var(--truper-amarillo) 100%);
   color: white;
   border: none;
-  padding: 12px 20px;
-  font-size: 1rem;
   border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
 }
 
-button:hover {
-  background-color: #e65c1c;
-}
-
-/* Mensaje de error */
-.error {
-  color: red;
-  margin-top: 15px;
-  font-size: 0.9rem;
-}
-
-/* Responsividad */
-@media (max-width: 768px) {
-  .login-box {
-    padding: 30px 20px;
-  }
-
-  .titulo {
-    font-size: 1.6rem;
-  }
-
-  .subtitulo {
-    font-size: 0.9rem;
-  }
-
-  input[type="password"] {
-    font-size: 0.9rem;
-    padding: 10px;
-  }
-
-  button {
-    font-size: 0.9rem;
-    padding: 10px 16px;
-  }
-
-  .error {
-    font-size: 0.8rem;
-  }
+/* Efecto hover del botón, cambiando a azul sólido */
+.btn-entrar:hover {
+  background-image: none; /* Se quita el gradiente */
+  background-color: var(--truper-azul);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  transform: translateY(-2px);
 }
