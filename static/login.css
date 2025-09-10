@@ -18,29 +18,16 @@ html, body {
 }
 
 body {
-  background-color: #222;
+  background: linear-gradient(to bottom right, #2C338D, #1a2058);
   font-family: 'Segoe UI', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('img/TRP.jpg');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-}
-
-body::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  height: 100vh;
+  margin: 0;
 }
 
 .contenedor {
-  position: relative;
-  z-index: 2;
   width: 100%;
   padding: 20px;
   display: flex;
@@ -92,14 +79,12 @@ body::before {
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-/* Efecto de foco en los campos */
 .campo input:focus {
   outline: none;
   border-color: var(--truper-naranja);
   box-shadow: 0 0 10px rgba(255, 103, 32, 0.5);
 }
 
-/* Botón de entrar con diseño de gradiente */
 .btn-entrar {
   width: 100%;
   padding: 12px;
@@ -116,9 +101,8 @@ body::before {
   transition: all 0.3s ease;
 }
 
-/* Efecto hover del botón, cambiando a azul sólido */
 .btn-entrar:hover {
-  background-image: none; /* Se quita el gradiente */
+  background-image: none;
   background-color: var(--truper-azul);
   box-shadow: 0 6px 20px rgba(0,0,0,0.3);
   transform: translateY(-2px);
