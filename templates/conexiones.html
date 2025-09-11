@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TRUPER | CAM - Conexiones</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='shared.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='conexiones.css') }}">
 </head>
 <body>
   <div class="contenido">
@@ -21,13 +22,33 @@
     </header>
 
     <main class="panel">
-      <h3>Bienvenido a la nueva sección</h3>
-      <p>Este espacio está diseñado para mostrar contenido dinámico, reportes, formularios o cualquier módulo que necesites.</p>
+      <div class="panel-conexiones">
+        <div class="imagen-wrapper">
+          <img src="{{ url_for('static', filename='img/CCTV.drawio.png') }}" alt="Dispositivos CCTV">
+          <div class="botones-superpuestos">
+            <button id="btn-dispositivo-1" class="btn-dispositivo" data-image="{{ url_for('static', filename='img/RACK.png') }}"> TERMICAS-ACCESO</button>
+            <button id="btn-dispositivo-2" class="btn-dispositivo" data-image="{{ url_for('static', filename='img/s.jpg') }}">CCTV-CDR</button>
+            <button id="btn-dispositivo-3" class="btn-dispositivo" data-image="{{ url_for('static', filename='img/TRP.jpg') }}">TRP-JIL-AUDITORIO</button>
+            <button id="btn-dispositivo-4" class="btn-dispositivo" data-image="{{ url_for('static', filename='img/CCTV.drawio.png') }}">TRP-JIL-PATIO-ARRENDA</button>
+            <button id="btn-dispositivo-5" class="btn-dispositivo" data-image="{{ url_for('static', filename='img/RACK.png') }}">NAVE-CDG-BOSCH-GRB 1</button>
+            <button id="btn-dispositivo-6" class="btn-dispositivo" data-image="{{ url_for('static', filename='img/s.jpg') }}">NAVE-CDG-BOSCH-GRB 2</button>
+          </div>
+        </div>
+      </div>
     </main>
+
+    <!-- The Modal -->
+    <div id="image-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <img id="modal-image" src="" alt="Imagen ampliada" style="width:100%">
+      </div>
+    </div>
 
     <footer class="pie">
       <p>&copy; 2025 TRUPER | CAM. Todos los derechos reservados.</p>
     </footer>
   </div>
+  <script src="{{ url_for('static', filename='js/conexiones.js') }}"></script>
 </body>
 </html>
