@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (target.classList.contains('close-button')) {
       modal.style.display = "none";
     } else if (target.id === 'modal-tabla-btn') {
-      modalContent.innerHTML = '<span class="back-button btn">Regresar</span>'; // Added btn class
+      modalContent.innerHTML = '<span class="btn-regresar">Regresar</span>';
       createAndDisplayTable();
     } else if (target.id === 'modal-sw-btn') {
       // Store current state before showing SW-HKVS image
