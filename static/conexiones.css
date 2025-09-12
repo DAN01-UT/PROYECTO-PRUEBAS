@@ -55,12 +55,12 @@
  *   transform: translateX(-50%);
  */
 
-#btn-dispositivo-1 { top: 90px; left: 50%; transform: translateX(-50%); }
-#btn-dispositivo-2 { top: 320px; left: 50%; transform: translateX(-50%); }
-#btn-dispositivo-3 { top: 562px; left: 50%; transform: translateX(-50%); }
-#btn-dispositivo-4 { top: 822px; left: 50%; transform: translateX(-50%); }
-#btn-dispositivo-5 { top: 1017px; left: 50%; transform: translateX(-50%); }
-#btn-dispositivo-6 { top: 1205px; left: 50%; transform: translateX(-50%); }
+#btn-dispositivo-1 { top: 7.5%; left: 50%; transform: translateX(-50%); }
+#btn-dispositivo-2 { top: 26.67%; left: 50%; transform: translateX(-50%); }
+#btn-dispositivo-3 { top: 46.83%; left: 50%; transform: translateX(-50%); }
+#btn-dispositivo-4 { top: 68.5%; left: 50%; transform: translateX(-50%); }
+#btn-dispositivo-5 { top: 84.75%; left: 50%; transform: translateX(-50%); }
+#btn-dispositivo-6 { top: 99%; left: 50%; transform: translateX(-50%); }
 
 
 /* Modal styles */
@@ -102,4 +102,47 @@
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+/* Dynamic Table Styles */
+.dynamic-table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: #f9f9f9;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.dynamic-table th,
+.dynamic-table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.dynamic-table th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Responsive adjustments for the table */
+@media (max-width: 600px) {
+  .dynamic-table {
+    width: 95%; /* Make table wider on smaller screens */
+  }
+
+  .dynamic-table th,
+  .dynamic-table td {
+    padding: 6px; /* Reduce padding on smaller screens */
+    font-size: 0.9em; /* Smaller font size */
+  }
+}
+
+@media (max-width: 400px) {
+  .dynamic-table th,
+  .dynamic-table td {
+    padding: 4px; /* Further reduce padding */
+    font-size: 0.8em; /* Even smaller font size */
+  }
 }

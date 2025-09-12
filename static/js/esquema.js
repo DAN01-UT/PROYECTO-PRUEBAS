@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // --- Código para hacer los botones arrastrables individualmente ---
-  const buttons = document.querySelectorAll('.btn-lateral');
+  const buttons = document.querySelectorAll('#SW-01, #TABLA');
 
   // 1. Crear el display para las coordenadas
   const coordsDisplay = document.createElement('div');
