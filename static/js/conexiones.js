@@ -1,14 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Modal elements
-  const modal = document.getElementById("image-modal");
+  const imageModal = document.getElementById("image-modal"); // Renamed for clarity
+  const tableModal = document.getElementById("table-modal"); // New table modal
   const buttons = document.querySelectorAll(".btn-dispositivo");
-  const modalContent = modal.querySelector('.modal-content');
+  const imageModalContent = imageModal.querySelector('.modal-content'); // Renamed for clarity
+  const tableModalContent = tableModal.querySelector('.modal-content'); // New table modal content
+  const tableContainer = document.getElementById("table-container"); // New table container
+  const closeImageModalButton = imageModal.querySelector('.close-button'); // Get close button for image modal
+  const closeTableModalButton = document.getElementById("close-table-modal"); // Get close button for table modal
+
   let currentImagePath = '';
   let isDispositivo1 = false;
   let previousModalState = { imagePath: '', isDispositivo1: false }; // To store state before showing SW-HKVS image
 
   function showImageAndButtons() {
-    modalContent.innerHTML = `<span class="close-button">&times;</span><img id="modal-image" src="${currentImagePath}" alt="Imagen ampliada" style="width:100%">`;
+    imageModalContent.innerHTML = `<span class="close-button">&times;</span><img id="modal-image" src="${currentImagePath}" alt="Imagen ampliada" style="width:100%">`;
 
     if (isDispositivo1) {
       const swButton = document.createElement('button');
@@ -18,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
       swButton.style.top = '25%';
       swButton.style.left = '5%';
       swButton.id = 'modal-sw-btn';
-      modalContent.appendChild(swButton);
+      imageModalContent.appendChild(swButton);
 
       const tablaButton = document.createElement('button');
       tablaButton.textContent = 'Conexiones Existentes'; // Corrected text
@@ -27,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
       tablaButton.style.top = '55%';
       tablaButton.style.left = '5%';
       tablaButton.id = 'modal-tabla-btn';
-      modalContent.appendChild(tablaButton);
+      imageModalContent.appendChild(tablaButton);
     }
   }
 
@@ -43,30 +49,31 @@ document.addEventListener('DOMContentLoaded', function() {
         currentImagePath = imagePath;
         isDispositivo1 = this.id === 'btn-dispositivo-1';
         showImageAndButtons();
-        modal.style.display = "block";
+        imageModal.style.display = "block"; // Show image modal
       }
     });
   });
 
-  // Handle clicks inside the modal using event delegation
-  modalContent.addEventListener('click', function(event) {
+  // Handle clicks inside the image modal using event delegation
+  imageModalContent.addEventListener('click', function(event) {
     const target = event.target;
 
     if (target.classList.contains('close-button')) {
-      modal.style.display = "none";
+      imageModal.style.display = "none";
     } else if (target.id === 'modal-tabla-btn') {
-      modalContent.innerHTML = '<span class="btn-regresar">Regresar</span>';
-      createAndDisplayTable();
+      imageModal.style.display = "none"; // Hide image modal
+      tableModal.style.display = "block"; // Show table modal
+      createAndDisplayTable(); // Populate table modal
     } else if (target.id === 'modal-sw-btn') {
       // Store current state before showing SW-HKVS image
       previousModalState.imagePath = currentImagePath;
       previousModalState.isDispositivo1 = isDispositivo1;
 
-      modalContent.innerHTML = `
+      imageModalContent.innerHTML = `
         <span class="close-button">&times;</span>
         <div class="image-display-wrapper">
             <img id="modal-image" src="/static/img/SW-HKVS.jpg" alt="Switch HKVS">
-            <button id="back-from-sw-btn" class="btn-regresar">Regresar</button>
+            <button id="back-from-sw-btn" class="btn-regresar">&larr; Regresar</button>
         </div>
       `;
       // Add event listener for the new back button
@@ -76,24 +83,29 @@ document.addEventListener('DOMContentLoaded', function() {
         showImageAndButtons();
       });
 
-    } else if (target.classList.contains('back-button')) {
-      showImageAndButtons();
     }
+  });
+
+  // Handle clicks inside the table modal
+  closeTableModalButton.addEventListener('click', function() {
+    tableModal.style.display = "none"; // Close table modal
+    imageModal.style.display = "block"; // Show image modal again
   });
 
   // Close the modal by clicking outside of the modal content
   window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
+    if (event.target == imageModal) {
+      imageModal.style.display = "none";
+    } else if (event.target == tableModal) {
+      tableModal.style.display = "none";
+      imageModal.style.display = "block"; // Show image modal again
     }
   }
 
   // Function to create and display the table
   function createAndDisplayTable() {
-    let existingTable = document.getElementById('dynamic-table');
-    if (existingTable) {
-      existingTable.parentElement.remove(); // Remove the wrapper
-    }
+    // Clear previous content in tableContainer
+    tableContainer.innerHTML = '';
 
     const table = document.createElement('table');
     table.id = 'dynamic-table';
@@ -142,12 +154,22 @@ document.addEventListener('DOMContentLoaded', function() {
     table.appendChild(thead);
     table.appendChild(tbody);
 
-    // Append the table to the modal content
-    if (modalContent) {
-        const tableWrapper = document.createElement('div');
-        tableWrapper.className = 'table-responsive-wrapper';
-        modalContent.appendChild(tableWrapper);
-        tableWrapper.appendChild(table); // Append table to wrapper
-    }
+    // Append the table to the tableContainer
+    const tableWrapper = document.createElement('div');
+    tableWrapper.className = 'table-responsive-wrapper';
+    tableContainer.appendChild(tableWrapper);
+    tableWrapper.appendChild(table); // Append table to wrapper
+
+    // Create and append the back button after the table
+    const backButton = document.createElement('span');
+    backButton.className = 'btn-regresar'; // Use the existing class
+    backButton.innerHTML = '&larr; Regresar';
+    tableContainer.appendChild(backButton); // Append to tableContainer
+
+    // Add event listener for the back button in the table modal
+    backButton.addEventListener('click', function() {
+      tableModal.style.display = "none"; // Close table modal
+      imageModal.style.display = "block"; // Show image modal again
+    });
   }
 });
