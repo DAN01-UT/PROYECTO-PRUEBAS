@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const modalContent = modal.querySelector('.modal-content');
   let currentImagePath = '';
   let isDispositivo1 = false;
+  let previousModalState = { imagePath: '', isDispositivo1: false }; // To store state before showing SW-HKVS image
 
   function showImageAndButtons() {
     modalContent.innerHTML = `<span class="close-button">&times;</span><img id="modal-image" src="${currentImagePath}" alt="Imagen ampliada" style="width:100%">`;
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
       modalContent.appendChild(swButton);
 
       const tablaButton = document.createElement('button');
-      tablaButton.textContent = 'COnexiones Existentes';
+      tablaButton.textContent = 'Conexiones Existentes'; // Corrected text
       tablaButton.className = 'btn-dispositivo';
       tablaButton.style.position = 'absolute';
       tablaButton.style.top = '55%';
@@ -36,6 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
       event.stopPropagation();
       const imagePath = this.getAttribute('data-image');
       if (imagePath) {
+        previousModalState.imagePath = currentImagePath; // Store current state
+        previousModalState.isDispositivo1 = isDispositivo1; // Store current state
+
         currentImagePath = imagePath;
         isDispositivo1 = this.id === 'btn-dispositivo-1';
         showImageAndButtons();
@@ -51,15 +55,27 @@ document.addEventListener('DOMContentLoaded', function() {
     if (target.classList.contains('close-button')) {
       modal.style.display = "none";
     } else if (target.id === 'modal-tabla-btn') {
-      modalContent.innerHTML = '<span class="back-button">&larr; Regresar</span>';
+      modalContent.innerHTML = '<span class="back-button btn">Regresar</span>'; // Added btn class
       createAndDisplayTable();
     } else if (target.id === 'modal-sw-btn') {
-      const modalImage = document.getElementById('modal-image');
-      const newImagePath = '/static/img/SW-HKVS.jpg';
-      if (modalImage) {
-        modalImage.src = newImagePath;
-        currentImagePath = newImagePath;
-      }
+      // Store current state before showing SW-HKVS image
+      previousModalState.imagePath = currentImagePath;
+      previousModalState.isDispositivo1 = isDispositivo1;
+
+      modalContent.innerHTML = `
+        <span class="close-button">&times;</span>
+        <div class="image-display-wrapper">
+            <img id="modal-image" src="/static/img/SW-HKVS.jpg" alt="Switch HKVS">
+            <button id="back-from-sw-btn" class="btn-regresar">Regresar</button>
+        </div>
+      `;
+      // Add event listener for the new back button
+      document.getElementById('back-from-sw-btn').addEventListener('click', function() {
+        currentImagePath = previousModalState.imagePath; // Restore previous image
+        isDispositivo1 = previousModalState.isDispositivo1; // Restore previous button state
+        showImageAndButtons();
+      });
+
     } else if (target.classList.contains('back-button')) {
       showImageAndButtons();
     }
@@ -97,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
       th.textContent = headerText;
       th.style.padding = '8px';
       th.style.border = '1px solid #ddd';
-      th.style.backgroundColor = '#4CAF50';
+      th.style.backgroundColor = 'var(--truper-azul)'; // Using Truper blue
       th.style.color = 'white';
       headerRow.appendChild(th);
     });
@@ -130,8 +146,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (modalContent) {
         const tableWrapper = document.createElement('div');
         tableWrapper.className = 'table-responsive-wrapper';
-        tableWrapper.appendChild(table);
         modalContent.appendChild(tableWrapper);
+        tableWrapper.appendChild(table); // Append table to wrapper
     }
   }
 });

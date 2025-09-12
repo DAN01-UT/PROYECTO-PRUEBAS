@@ -1,16 +1,16 @@
+/* Estilos para la página de conexiones */
 .panel-conexiones {
   text-align: center;
 }
 
 .imagen-wrapper {
   position: relative;
-  display: inline-block; /* To wrap tightly around the image */
+  display: inline-block;
 }
 
 .imagen-wrapper img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 .botones-superpuestos {
@@ -23,37 +23,23 @@
 
 .btn-dispositivo {
   position: absolute;
-  background-image: linear-gradient(to right, #ff8c00, #ff6347);
-  color: white;
-  padding: 10px 15px;
-  border: none;
+  background-color: var(--truper-naranja);
+  color: #fff;
+  border: 2px solid var(--truper-amarillo);
+  padding: 10px 20px; /* Increased padding */
   cursor: pointer;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  width: 160px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  font-weight: bold;
-  text-transform: uppercase;
-  z-index: 10;
-  font-size: 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+  font-size: 16px; /* Increased font size */
+  min-width: 150px; /* Ensure a minimum width */
+  text-align: center;
 }
 
 .btn-dispositivo:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-  background-image: linear-gradient(to right, #ff6347, #ff8c00);
+    background-color: var(--truper-azul);
+    transform: scale(1.05); /* Slightly less aggressive scale */
 }
 
-/*
- * --- POSICIONES DE LOS BOTONES ---
- * Modifica los valores de 'top' y 'left' en píxeles (px) para ajustar la posición de cada botón.
- * 'top': Distancia desde la parte superior de la imagen.
- * 'left': Distancia desde la izquierda de la imagen.
- *
- * Para centrar un botón horizontalmente, puedes usar:
- *   left: 50%;
- *   transform: translateX(-50%);
- */
 
 #btn-dispositivo-1 { top: 7.5%; left: 50%; transform: translateX(-50%); }
 #btn-dispositivo-2 { top: 26.67%; left: 50%; transform: translateX(-50%); }
@@ -62,87 +48,118 @@
 #btn-dispositivo-5 { top: 84.75%; left: 50%; transform: translateX(-50%); }
 #btn-dispositivo-6 { top: 99%; left: 50%; transform: translateX(-50%); }
 
-
-/* Modal styles */
+/* Estilos para el modal */
 .modal {
   display: none;
   position: fixed;
-  z-index: 1001;
+  z-index: 1;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.9);
 }
 
 .modal-content {
-  background-color: #fefefe;
-  margin: 10% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 90%;
-  max-width: 600px;
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 900px;
   position: relative;
+  background-color: #fff;
+  border-radius: 10px;
   border-top: 5px solid var(--truper-naranja);
-  border-radius: 8px;
+  padding: 20px; /* Added padding to modal content */
 }
 
 .close-button {
-  color: #aaa;
   position: absolute;
-  top: 10px;
-  right: 25px;
-  font-size: 28px;
+  top: 15px;
+  right: 35px;
+  color: #aaa;
+  font-size: 40px;
   font-weight: bold;
+  transition: 0.3s;
 }
 
 .close-button:hover,
 .close-button:focus {
-  color: black;
+  color: #000;
   text-decoration: none;
   cursor: pointer;
 }
 
-/* Dynamic Table Styles */
-.dynamic-table {
-  width: 80%;
-  margin: 20px auto;
-  border-collapse: collapse;
-  background-color: #f9f9f9;
-  color: #333;
-  border: 1px solid #ddd;
+.image-display-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
-.dynamic-table th,
-.dynamic-table td {
-  padding: 8px;
-  border: 1px solid #ddd;
-  text-align: left;
+.image-display-wrapper img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
 }
 
-.dynamic-table th {
-  background-color: #4CAF50;
-  color: white;
+.btn-regresar {
+  background-color: var(--truper-naranja); /* Use Truper orange */
+  color: #fff;
+  border: none;
+  padding: 10px 20px; /* Slightly smaller than home buttons */
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-top: 10px; /* Space from image */
+  display: inline-block;
 }
 
-/* Responsive adjustments for the table */
-@media (max-width: 600px) {
-  .dynamic-table {
-    width: 95%; /* Make table wider on smaller screens */
+.btn-regresar:hover {
+  background-color: var(--truper-azul); /* Blue on hover for contrast */
+  transform: translateY(-1px); /* Slight lift effect */
+}
+
+/* Responsive adjustments for btn-regresar */
+@media (max-width: 768px) {
+  .btn-regresar {
+    font-size: 0.9em;
+    padding: 8px 16px;
   }
+}
 
-  .dynamic-table th,
-  .dynamic-table td {
-    padding: 6px; /* Reduce padding on smaller screens */
-    font-size: 0.9em; /* Smaller font size */
+@media (max-width: 480px) {
+  .btn-regresar {
+    font-size: 0.8em;
+    padding: 6px 12px;
   }
 }
 
-@media (max-width: 400px) {
-  .dynamic-table th,
-  .dynamic-table td {
-    padding: 4px; /* Further reduce padding */
-    font-size: 0.8em; /* Even smaller font size */
-  }
+/* Responsive styles from previous step (I should keep them) */
+@media (max-width: 992px) {
+    .btn-dispositivo {
+        font-size: 14px;
+        padding: 8px 16px;
+        min-width: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .btn-dispositivo {
+        font-size: 12px;
+        padding: 6px 12px;
+        min-width: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-dispositivo {
+        font-size: 10px;
+        padding: 5px 10px;
+        min-width: 80px;
+    }
 }
