@@ -1,148 +1,147 @@
 :root {
-    --truper-naranja: #FF6720;
-    --truper-azul: #2C338D;
-    --gris-claro: #f4f4f4;
-    --texto: #333;
-  }
-  
-  /* Reset básico */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  html, body {
-    height: 100%;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: var(--gris-claro);
-    color: var(--texto);
-  }
-  
-  /* Layout general */
-  body {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* Encabezado */
-  .encabezado {
-    background-color: var(--truper-naranja);
-    color: white;
-    padding: 20px;
-    text-align: center;
-    border-bottom: 4px solid var(--truper-azul);
-  }
-  
+  --truper-naranja: #FF6720;
+  --truper-azul: #2C338D;
+  --gris-claro: #f4f4f4;
+  --texto: #333;
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--gris-claro);
+  color: var(--texto);
+}
+
+/* Layout general */
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Encabezado */
+.encabezado {
+  background-color: var(--truper-naranja);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 4px solid var(--truper-azul);
+}
+
+.encabezado h1 {
+  font-size: 2.5rem;
+}
+
+.encabezado h2 {
+  font-size: 1.2rem;
+  font-weight: normal;
+  margin-top: 10px;
+}
+
+/* Contenido principal */
+.contenido {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.panel {
+  background-color: white;
+  padding: 30px;
+  max-width: 900px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+/* Pie de página */
+.pie {
+  text-align: center;
+  padding: 15px;
+  background-color: var(--truper-naranja);
+  color: white;
+  font-size: 0.9rem;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 1024px) {
   .encabezado h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
-  
-  .encabezado h2 {
-    font-size: 1.2rem;
-    font-weight: normal;
-    margin-top: 10px;
-  }
-  
-  /* Contenido principal */
-  .contenido {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
-  }
-  
+
   .panel {
-    background-color: white;
-    padding: 30px;
-    max-width: 900px;
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    padding: 25px;
   }
-  
-  /* Pie de página */
+}
+
+@media (max-width: 768px) {
+  .encabezado h1 {
+    font-size: 1.8rem;
+  }
+
+  .encabezado h2 {
+    font-size: 1rem;
+  }
+
+  .contenido {
+    padding: 20px;
+  }
+
+  .panel {
+    padding: 20px;
+    margin: 10px;
+  }
+
   .pie {
-    text-align: center;
-    padding: 15px;
-    background-color: var(--truper-naranja);
-    color: white;
+    font-size: 0.8rem;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .encabezado h1 {
+    font-size: 1.5rem;
+  }
+
+  .encabezado h2 {
     font-size: 0.9rem;
   }
-  
-  /* Media Queries para responsividad */
-  @media (max-width: 1024px) {
-    .encabezado h1 {
-      font-size: 2rem;
-    }
-  
-    .panel {
-      padding: 25px;
-    }
+
+  .panel {
+    padding: 15px;
   }
-  
-  @media (max-width: 768px) {
-    .encabezado h1 {
-      font-size: 1.8rem;
-    }
-  
-    .encabezado h2 {
-      font-size: 1rem;
-    }
-  
-    .contenido {
-      padding: 20px;
-    }
-  
-    .panel {
-      padding: 20px;
-      margin: 10px;
-    }
-  
-    .pie {
-      font-size: 0.8rem;
-      padding: 10px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .encabezado h1 {
-      font-size: 1.5rem;
-    }
-  
-    .encabezado h2 {
-      font-size: 0.9rem;
-    }
-  
-    .panel {
-      padding: 15px;
-    }
-  }
-  .btn-casita {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    background-color: #2C338D; /* Azul Truper */
-    color: white;
-    padding: 10px;
-    border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    z-index: 1000;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .btn-casita:hover {
-    background-color: #1f276f; /* Azul más oscuro al hacer hover */
-    transform: scale(1.1);
-  }
-  
-  .btn-casita svg {
-    width: 24px;
-    height: 24px;
-    fill: white;
-  }
-  
+}
+.btn-casita {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #2C338D; /* Azul Truper */
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-casita:hover {
+  background-color: #1f276f; /* Azul más oscuro al hacer hover */
+  transform: scale(1.1);
+}
+
+.btn-casita svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}

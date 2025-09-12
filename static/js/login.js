@@ -1,4 +1,5 @@
-function checkPassword() {
+function checkPassword(event) {
+    event.preventDefault(); // Prevent form submission
     const input = document.getElementById("password").value;
     const error = document.getElementById("error");
   

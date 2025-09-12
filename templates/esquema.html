@@ -27,13 +27,18 @@
         <button id="btn-toggle" class="btn-despliegue">Ver Esquema</button>
 
         <div id="rack-container" class="oculto">
+          <!--
+            Instrucciones:
+            Reemplaza el `filename` en cada atributo `data-image` con la ruta a tu imagen específica.
+            Ejemplo: filename='img/mi-imagen.png'
+          -->
           <div class="botones-laterales">
-            <button id="btn-termicas-acceso" class="btn-lateral btn-termicas-acceso" data-image="">TERMICAS-ACCESO</button>
-            <button id="btn-cctv-cdr" class="btn-lateral btn-cctv-cdr" data-image="">CCTV - CDR</button>
-            <button id="btn-trp-jil-auditorio" class="btn-lateral btn-trp-jil-auditorio" data-image="">TRP-JIL-AUDITORIO</button>
-            <button id="btn-trp-jil-patio-arrenda" class="btn-lateral btn-trp-jil-patio-arrenda" data-image="">TRP-JIL-PATIO ARRENDA</button>
-            <button id="btn-nave-cdg-bosch-grb-1" class="btn-lateral btn-nave-cdg-bosch-grb-1" data-image="">NAVE-CDG-BOSCH-GRB 1</button>
-            <button id="btn-nave-cdg-bosch-grb-2" class="btn-lateral btn-nave-cdg-bosch-grb-2" data-image="">NAVE-CDG-BOSCH-GRB 2</button>
+            <button id="btn-termicas-acceso" class="btn-lateral btn-termicas-acceso" data-image="{{ url_for('static', filename='img/DVR1.png') }}">TERMICAS-ACCESO</button>
+            <button id="btn-cctv-cdr" class="btn-lateral btn-cctv-cdr" data-image="{{ url_for('static', filename='img/DVR2.png') }}">CCTV - CDR</button>
+            <button id="btn-trp-jil-auditorio" class="btn-lateral btn-trp-jil-auditorio" data-image="{{ url_for('static', filename='img/DVR3.png') }}">TRP-JIL-AUDITORIO</button>
+            <button id="btn-trp-jil-patio-arrenda" class="btn-lateral btn-trp-jil-patio-arrenda" data-image="{{ url_for('static', filename='img/DVR4.png') }}">TRP-JIL-PATIO ARRENDA</button>
+            <button id="btn-nave-cdg-bosch-grb-1" class="btn-lateral btn-nave-cdg-bosch-grb-1" data-image="{{ url_for('static', filename='img/DVR5.png') }}">NAVE-CDG-BOSCH-GRB 1</button>
+            <button id="btn-nave-cdg-bosch-grb-2" class="btn-lateral btn-nave-cdg-bosch-grb-2" data-image="{{ url_for('static', filename='img/DVR6.png') }}">NAVE-CDG-BOSCH-GRB 2</button>
           </div>
 
           <div class="imagen-wrapper">
