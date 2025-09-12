@@ -19,17 +19,17 @@ document.addEventListener('DOMContentLoaded', function() {
           swButton.textContent = 'SW';
           swButton.className = 'btn-dispositivo';
           swButton.style.position = 'absolute';
-          swButton.style.top = '10%';
-          swButton.style.left = '10%';
+          swButton.style.top = '25%';
+          swButton.style.left = '5%';
           swButton.id = 'modal-sw-btn';
           modalContent.appendChild(swButton);
 
           const tablaButton = document.createElement('button');
-          tablaButton.textContent = 'Mostrar Tabla';
+          tablaButton.textContent = 'COnexiones Existentes';
           tablaButton.className = 'btn-dispositivo';
           tablaButton.style.position = 'absolute';
-          tablaButton.style.top = '10%';
-          tablaButton.style.left = '40%';
+          tablaButton.style.top = '60%';
+          tablaButton.style.left = '5%';
           tablaButton.id = 'modal-tabla-btn';
           modalContent.appendChild(tablaButton);
         }

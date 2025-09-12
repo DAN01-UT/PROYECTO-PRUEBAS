@@ -40,23 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // --- Código para hacer los botones arrastrables individualmente ---
   const buttons = document.querySelectorAll('#SW-01, #TABLA');
 
-  // 1. Crear el display para las coordenadas
-  const coordsDisplay = document.createElement('div');
-  coordsDisplay.id = 'coords-display';
-  coordsDisplay.innerHTML = 'Arrastra cada botón a su lugar.<br>Copia el ID y las coordenadas de cada uno.';
-  coordsDisplay.style.position = 'fixed';
-  coordsDisplay.style.top = '10px';
-  coordsDisplay.style.right = '10px';
-  coordsDisplay.style.backgroundColor = 'rgba(0,0,0,0.8)';
-  coordsDisplay.style.color = 'white';
-  coordsDisplay.style.padding = '15px';
-  coordsDisplay.style.borderRadius = '8px';
-  coordsDisplay.style.fontFamily = 'monospace';
-  coordsDisplay.style.fontSize = '12px';
-  coordsDisplay.style.zIndex = '1002';
-  coordsDisplay.style.textAlign = 'center';
-  document.body.appendChild(coordsDisplay);
-
   const coordsId = document.createElement('p');
   coordsId.style.fontWeight = 'bold';
   coordsId.style.fontSize = '14px';
@@ -131,5 +114,4 @@ document.addEventListener('DOMContentLoaded', function() {
     activeDrag = null;
   });
 
-  // --- Fin del código para arrastrar ---
 });
