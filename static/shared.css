@@ -37,8 +37,15 @@ body {
   background-color: transparent;
   color: white;
   padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.encabezado div {
+  flex-grow: 1;
   text-align: center;
-  position: relative;
+  margin: 0 20px;
 }
 
 .encabezado h1 {
@@ -110,8 +117,6 @@ body {
 
 /* Botones de navegación flotantes */
 .btn-logout, .btn-casita {
-  position: absolute;
-  top: 20px;
   background-color: rgba(255, 255, 255, 0.2);
   color: white;
   padding: 10px;
@@ -123,14 +128,6 @@ body {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-}
-
-.btn-logout {
-  right: 20px;
-}
-
-.btn-casita {
-  left: 20px;
 }
 
 .btn-logout:hover, .btn-casita:hover {
@@ -147,6 +144,14 @@ body {
 
 /* Responsividad */
 @media (max-width: 768px) {
+  .encabezado {
+    flex-direction: column;
+  }
+
+  .encabezado div {
+    margin: 0 0 20px 0;
+  }
+
   .encabezado h1 {
     font-size: 2rem;
   }
@@ -172,16 +177,6 @@ body {
   .pie {
     font-size: 0.8rem;
     padding: 10px;
-  }
-  
-  .btn-logout {
-    top: 15px;
-    right: 15px;
-  }
-
-  .btn-casita {
-    top: 15px;
-    left: 15px;
   }
 }
 
