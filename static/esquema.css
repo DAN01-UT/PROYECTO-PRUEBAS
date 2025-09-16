@@ -27,8 +27,6 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 2rem;
-  flex-wrap: wrap;
   min-height: 600px; /* Altura mínima para asegurar que el contenedor tenga tamaño y espacio para mover botones */
 }
 
@@ -37,7 +35,7 @@
 }
 
 .imagen-wrapper {
-  max-width: 70%; /* Devolvemos un ancho máximo para que haya espacio a los lados */
+  max-width: none; /* Devolvemos un ancho máximo para que haya espacio a los lados */
 }
 
 .imagen-wrapper img {
