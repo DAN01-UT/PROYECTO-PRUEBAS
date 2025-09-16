@@ -23,11 +23,10 @@
 }
 
 #rack-container {
-  position: relative; /* Contenedor padre para el posicionamiento absoluto de los botones */
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  min-height: 600px; /* Altura mínima para asegurar que el contenedor tenga tamaño y espacio para mover botones */
+  align-items: center;
 }
 
 .oculto {
@@ -35,7 +34,7 @@
 }
 
 .imagen-wrapper {
-  max-width: none; /* Devolvemos un ancho máximo para que haya espacio a los lados */
+  margin-top: 20px;
 }
 
 .imagen-wrapper img {
@@ -45,14 +44,14 @@
 }
 
 .botones-laterales {
-  /* Este contenedor ya no necesita estilos de posicionamiento o flexbox,
-     ahora es solo un agrupador. Los botones dentro se posicionarán absolutamente. */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .btn-lateral {
-  position: absolute; /* Cada botón se posiciona de forma independiente */
-  top: 20px; /* Posición inicial por defecto, se sobreescribirá con JS */
-  left: 20px; /* Posición inicial por defecto, se sobreescribirá con JS */
   background-image: linear-gradient(to right, #ff8c00, #ff6347); /* Gradient background */
   color: white;
   padding: 12px 20px; /* Adjusted padding */
@@ -64,7 +63,6 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
   font-weight: bold; /* Bold text */
   text-transform: uppercase; /* Uppercase text */
-  z-index: 10; /* Para que estén sobre la imagen */
 }
 
 .btn-lateral:hover {
@@ -113,36 +111,3 @@
   text-decoration: none;
   cursor: pointer;
 }
-
-/* Responsive adjustments for schema page */
-@media (max-width: 768px) {
-  #rack-container {
-    flex-direction: column;
-    min-height: auto; /* Reset min-height */
-  }
-  .imagen-wrapper {
-    max-width: 100%;
-    order: 1;
-  }
-  .botones-laterales {
-    order: 2;
-    /* En móvil, creamos un contenedor flex para centrar los botones */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-  .btn-lateral {
-    position: relative; /* Reset position for mobile */
-    top: auto; /* Reset position */
-    left: auto; /* Reset position */
-  }
-}
-
-.btn-termicas-acceso { top: 788px; left: -15px; }
-.btn-cctv-cdr { top: 855px; left: 585px; }
-.btn-trp-jil-auditorio { top: 959px; left: -15px; }
-.btn-trp-jil-patio-arrenda { top: 1017px; left: 585px; }
-.btn-nave-cdg-bosch-grb-1 { top: 1084px; left: -15px; }
-.btn-nave-cdg-bosch-grb-2 { top: 1137px; left: 585px; }
